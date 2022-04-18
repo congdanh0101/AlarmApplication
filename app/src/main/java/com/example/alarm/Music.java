@@ -35,7 +35,7 @@ public class Music extends Service {
 
 
         if(id ==1){
-            mediaPlayer = MediaPlayer.create(this, R.raw.ip6);
+            mediaPlayer = MediaPlayer.create(this, R.raw.alarm);
             mediaPlayer.setLooping(true);
             mediaPlayer.start();
             id = 0;
