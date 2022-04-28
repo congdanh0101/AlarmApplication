@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Worldclock.WorldclockFragment"
-    android:padding="8dp">
+    >
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -16,8 +16,8 @@
 
     <ImageView
         android:id="@+id/iv_add_worldclock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_alignParentEnd="true"
         android:src="@drawable/ic_add" />
 

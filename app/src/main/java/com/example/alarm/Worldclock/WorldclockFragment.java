@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.alarm.Adapter.ShowAllAdapter;
 import com.example.alarm.Adapter.WorldClockAdapter;
 import com.example.alarm.DAO.ICityDAO;
 import com.example.alarm.DB.SQLiteCity;
@@ -165,7 +166,7 @@ public class WorldclockFragment extends Fragment {
 
 
     private void showAllCities() {
-        Intent intent = new Intent(getActivity(), ShowAllWorldClock.class);
+        Intent intent = new Intent(getActivity(), ShowAll.class);
         getActivity().startActivityFromFragment(this,intent,REQUEST_CODE);
         startThread();
     }
@@ -244,13 +245,13 @@ public class WorldclockFragment extends Fragment {
                         String zoneName = c.getString("zoneName");
                         String cityName = zoneName.substring(zoneName.indexOf('/') + 1);
                         if (cityName.indexOf('/') == -1) {
-                            if (cityName.indexOf('_') == -1)
+                            if (cityName.indexOf('_') != -1)
                                 cityName = cityName.replace('_', ' ');
-                            cityArrayList.add(new City(cityName, zoneName));
+                            cities.add(new City(cityName, zoneName));
                         }
 
                     }
-                    db.fillDb(cityArrayList);
+                    db.fillDb(cities);
                 } catch (final JSONException e) {
                     Log.d(LOG_TAG, "JSON parsing error: " + e.getMessage());
                 }
