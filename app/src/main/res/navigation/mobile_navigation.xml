@@ -6,22 +6,22 @@
     app:startDestination="@id/alarmFragment">
     <fragment
         android:id="@+id/alarmFragment"
-        android:name="com.example.alarm.AlarmFragment"
+        android:name="com.example.alarm.Alarm.AlarmFragment"
         android:label="fragment_alarm"
         tools:layout="@layout/fragment_alarm" />
     <fragment
         android:id="@+id/timerFragment"
-        android:name="com.example.alarm.TimerFragment"
+        android:name="com.example.alarm.Timer.TimerFragment"
         android:label="fragment_timer"
         tools:layout="@layout/fragment_timer" />
     <fragment
         android:id="@+id/stopwatchFragment"
-        android:name="com.example.alarm.StopwatchFragment"
+        android:name="com.example.alarm.Stopwatch.StopwatchFragment"
         android:label="fragment_stopwatch"
         tools:layout="@layout/fragment_stopwatch" />
     <fragment
         android:id="@+id/worldclockFragment"
-        android:name="com.example.alarm.WorldclockFragment"
+        android:name="com.example.alarm.Worldclock.WorldclockFragment"
         android:label="fragment_worldclock"
         tools:layout="@layout/fragment_worldclock" />
 </navigation>

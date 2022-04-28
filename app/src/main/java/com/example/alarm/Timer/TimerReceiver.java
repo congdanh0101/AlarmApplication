@@ -1,4 +1,4 @@
-package com.example.alarm;
+package com.example.alarm.Timer;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

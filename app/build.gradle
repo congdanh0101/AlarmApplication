@@ -1,8 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'androidx.navigation.safeargs'
- 
 }
+//apply plugin: 'com.android.library'
+//apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdk 32
@@ -50,4 +51,15 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
 
+    def room_version = "2.4.2"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+//
+//    implementation 'android.arch.lifecycle:extensions:1.1.1'
+//    implementation 'android.arch.lifecycle:runtime:1.1.1'
+//    annotationProcessor 'android.arch.lifecycle:compiler:1.1.1'
+
+    implementation 'com.jakewharton:butterknife:10.2.3'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
 }

@@ -2,10 +2,8 @@ package com.example.alarm;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -13,7 +11,10 @@ import android.widget.TimePicker;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.badge.BadgeDrawable;
+import com.example.alarm.Alarm.AlarmFragment;
+import com.example.alarm.Stopwatch.StopwatchFragment;
+import com.example.alarm.Timer.TimerFragment;
+import com.example.alarm.Worldclock.WorldclockFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 

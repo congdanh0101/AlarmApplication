@@ -1,4 +1,4 @@
-package com.example.alarm;
+package com.example.alarm.Timer;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.alarm.R;
+
 
 public class TimerFragment extends Fragment {
 
@@ -32,6 +34,8 @@ public class TimerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+
         return inflater.inflate(R.layout.fragment_timer, container, false);
     }
 
