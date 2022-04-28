@@ -30,6 +30,7 @@
         <entry key="app/src/main/res/layout/fragment_worldclock.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/item_list_worldclock.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/item_show_all_worldclock.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/item_stopwatch_history.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/item_stopwatch_lap.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/show_all.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/show_all_worldclock.xml" value="0.3098958333333333" />
