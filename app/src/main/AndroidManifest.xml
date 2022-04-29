@@ -18,7 +18,7 @@
         android:theme="@style/Theme.Alarm">
         <activity
             android:name=".RingActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Worldclock.ShowAll"
             android:exported="false" />
@@ -36,11 +36,21 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".BroadcastReceiver.AlarmReceiver" />
+        <receiver android:name=".BroadcastReceiver.AlarmReceiver"
+            android:exported="true">
 
-        <service
-            android:name=".Music"
-            android:enabled="true" />
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+
+        </receiver>
+
+<!--        <service-->
+<!--            android:name=".Music"-->
+<!--            android:enabled="true" />-->
+
+        <service android:name=".Service.AlarmService"/>
+        <service android:name=".Service.reScheduledAlarmService"/>
     </application>
 
 </manifest>
