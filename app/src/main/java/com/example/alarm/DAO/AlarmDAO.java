@@ -6,6 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.alarm.model.Alarm;
 
@@ -16,13 +17,25 @@ public interface AlarmDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(List<Alarm> alarms);
 
-    @Query("DELETE FROM Alarm WHERE id = :id")
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertAlarm(Alarm alarm);
+
+    @Query("DELETE FROM Alarm WHERE Id = :id")
     void deleteAlarm(int id);
 
     @Query("SELECT * FROM Alarm")
-    LiveData<List<Alarm>> getAllAlarm();
+    Alarm getAllAlarm();
 
-    @Query("SELECT * FROM Alarm WHERE id = :id")
+    @Query("DELETE FROM Alarm")
+    void deleteAll();
+
+    @Query("SELECT * FROM Alarm WHERE Id = :id")
     LiveData<Alarm> getAlarm(int id);
+
+    @Query("SELECT * FROM Alarm")
+    LiveData<List<Alarm>> getAllAlarms();
+
+    @Update
+    void updateAlarm(Alarm alarm);
 
 }

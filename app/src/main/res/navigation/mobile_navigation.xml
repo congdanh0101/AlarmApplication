@@ -5,10 +5,19 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@id/alarmFragment">
     <fragment
+        android:id="@+id/abc"
+        android:name="com.example.alarm.AlarmF"
+        tools:layout="@layout/alarm"
+        />
+    <fragment
         android:id="@+id/alarmFragment"
         android:name="com.example.alarm.Alarm.AlarmFragment"
-        android:label="fragment_alarm"
-        tools:layout="@layout/fragment_alarm" />
+        android:label="My Alarm"
+        tools:layout="@layout/fragment_alarm" >
+        <action
+            android:id="@+id/action_alarmFragment_to_createAlarmFragment"
+            app:destination="@id/createAlarmFragment" />
+    </fragment>
     <fragment
         android:id="@+id/timerFragment"
         android:name="com.example.alarm.Timer.TimerFragment"
@@ -24,4 +33,12 @@
         android:name="com.example.alarm.Worldclock.WorldclockFragment"
         android:label="fragment_worldclock"
         tools:layout="@layout/fragment_worldclock" />
+    <fragment
+        android:id="@+id/createAlarmFragment"
+        android:name="com.example.alarm.Alarm.CreateAlarmFragment"
+        android:label="Schedule Alarm">
+        <action
+            android:id="@+id/action_createAlarmFragment_to_alarmFragment"
+            app:destination="@id/alarmFragment" />
+    </fragment>
 </navigation>

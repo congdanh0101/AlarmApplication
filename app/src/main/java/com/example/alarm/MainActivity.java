@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.alarm.Alarm.AlarmFragment;
+import com.example.alarm.Alarm.AlarmFragmentOfficial;
 import com.example.alarm.Stopwatch.StopwatchFragment;
 import com.example.alarm.Timer.TimerFragment;
 import com.example.alarm.Worldclock.WorldclockFragment;
@@ -23,6 +24,7 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
+    AlarmFragmentOfficial alarmFragmentOfficial = new AlarmFragmentOfficial();
     AlarmFragment alarmFragment = new AlarmFragment();
     TimerFragment timerFragment = new TimerFragment();
     StopwatchFragment stopwatchFragment = new StopwatchFragment();
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, alarmFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, alarmFragmentOfficial).commit();
 
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (item.getItemId()) {
                     case R.id.navigation_alarm:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, alarmFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, alarmFragmentOfficial).commit();
                         return true;
                     case R.id.navigation_stopwatch:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, stopwatchFragment).commit();
