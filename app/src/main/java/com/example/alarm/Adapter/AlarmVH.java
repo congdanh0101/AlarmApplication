@@ -49,16 +49,20 @@ public class AlarmVH extends RecyclerView.ViewHolder {
             tv_alarmRecurringDays.setText("Once off");
         }
 
-        if (!alarm.getTitle().isEmpty()) tv_alarmTitle.setText(alarm.getTitle());
-        else tv_alarmTitle.setText("My Alarm");
+        if (!alarm.getTitle().isEmpty())
+            tv_alarmTitle.setText(alarm.getTitle());
+        else
+            tv_alarmTitle.setText("My Alarm");
 
-        if(alarm.isRecurring())tv_alarmDay.setText(alarm.getRecurringDaysText());
-        else tv_alarmDay.setText(DayUtil.getDay(alarm.getHour(),alarm.getMinute()));
+        if (alarm.isRecurring())
+            tv_alarmDay.setText(alarm.getRecurringDaysText());
+        else
+            tv_alarmDay.setText(DayUtil.getDay(alarm.getHour(), alarm.getMinute()));
 
         sw_isAlarmStarted.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isShown() || compoundButton.isPressed())
+                if (compoundButton.isShown() || compoundButton.isPressed())
                     listener.onToggle(alarm);
             }
         });
@@ -73,7 +77,7 @@ public class AlarmVH extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onItemClick(alarm,view);
+                listener.onItemClick(alarm, view);
             }
         });
     }

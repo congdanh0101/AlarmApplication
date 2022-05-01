@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.TimePicker;
 
 import androidx.annotation.Nullable;
@@ -36,6 +37,7 @@ public class CreateAlarmFragment extends Fragment {
     private Alarm alarm;
     private Ringtone ringtone;
     private CreateAlarmVM createAlarmVM;
+    private ImageView iv_callback;
 
     public CreateAlarmFragment() {
     }
@@ -60,13 +62,23 @@ public class CreateAlarmFragment extends Fragment {
         ringtone = RingtoneManager.getRingtone(getContext(), Uri.parse(tone));
         binding.fragmentCreatealarmSetToneName.setText(ringtone.getTitle(getContext()));
 
+        iv_callback = binding.ivCallback;
+        iv_callback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_createAlarmFragment_to_alarmFragment);
+            }
+        });
+
         if (alarm != null) updateAlarmInfo(alarm);
 
         binding.fragmentCreatealarmRecurring.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b) binding.fragmentCreatealarmRecurringOptions.setVisibility(View.VISIBLE);
-                else binding.fragmentCreatealarmRecurringOptions.setVisibility(View.GONE);
+                if (b)
+                    binding.fragmentCreatealarmRecurringOptions.setVisibility(View.VISIBLE);
+                else
+                    binding.fragmentCreatealarmRecurringOptions.setVisibility(View.GONE);
             }
         });
 
@@ -205,30 +217,30 @@ public class CreateAlarmFragment extends Fragment {
 
             if (alarm.isVibrate()) binding.fragmentCreatealarmVibrateSwitch.setChecked(true);
             else binding.fragmentCreatealarmVibrateSwitch.setChecked(false);
-        }
-        else
+        } else
             binding.fragmentCreatealarmRecurring.setChecked(false);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        binding = null;
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(requestCode==REQUEST_CODE && resultCode == Activity.RESULT_OK){
+        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             Uri uri = data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
-            ringtone = RingtoneManager.getRingtone(getContext(),uri);
+            ringtone = RingtoneManager.getRingtone(getContext(), uri);
             String title = ringtone.getTitle(getContext());
-            if(uri!=null){
+            if (uri != null) {
                 tone = uri.toString();
-                if(title!=null && !title.isEmpty()){
+                if (title != null && !title.isEmpty())
                     binding.fragmentCreatealarmSetToneName.setText(title);
-                }else{
-                    binding.fragmentCreatealarmSetToneName.setText("");
-                }
+            } else {
+                binding.fragmentCreatealarmSetToneName.setText("");
             }
+
         }
     }
 }

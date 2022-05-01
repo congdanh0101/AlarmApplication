@@ -6,8 +6,8 @@
     app:startDestination="@id/alarmFragment">
     <fragment
         android:id="@+id/abc"
-        android:name="com.example.alarm.AlarmF"
-        tools:layout="@layout/alarm"
+        android:name="com.example.alarm.Alarm.AlarmFragmentOfficial"
+        tools:layout="@layout/fragment_alarm_official"
         />
     <fragment
         android:id="@+id/alarmFragment"

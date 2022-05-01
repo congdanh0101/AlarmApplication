@@ -44,7 +44,8 @@ public class AlarmFragment extends Fragment implements OnToggleAlarmListener {
         listVM.getListLiveData().observe(this, new Observer<List<Alarm>>() {
             @Override
             public void onChanged(List<Alarm> alarms) {
-                if (alarms != null) adapter.setDataAlarm(alarms);
+                if (alarms != null)
+                    adapter.setDataAlarm(alarms);
             }
         });
     }

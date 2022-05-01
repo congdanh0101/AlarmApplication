@@ -1,17 +1,14 @@
 package com.example.alarm.Service;
 
-import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 
 import androidx.annotation.Nullable;
+import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.Observer;
 
 import com.example.alarm.DB.AlarmRepository;
 import com.example.alarm.model.Alarm;
-import androidx.lifecycle.LifecycleService;
-import androidx.lifecycle.Observer;
-
 
 import java.util.List;
 
@@ -35,7 +32,8 @@ public class reScheduledAlarmService extends LifecycleService {
             @Override
             public void onChanged(List<Alarm> alarms) {
                 for (Alarm a : alarms) {
-                    if (a.isStarted()) a.schedule(getApplication());
+                    if (a.isStarted())
+                        a.schedule(getApplication());
                 }
             }
         });

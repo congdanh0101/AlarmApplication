@@ -49,8 +49,10 @@
 <!--            android:name=".Music"-->
 <!--            android:enabled="true" />-->
 
-        <service android:name=".Service.AlarmService"/>
-        <service android:name=".Service.reScheduledAlarmService"/>
+        <service android:name=".Service.AlarmService"
+            android:exported="true"/>
+        <service android:name=".Service.reScheduledAlarmService"
+            android:exported="true"/>
     </application>
 
 </manifest>

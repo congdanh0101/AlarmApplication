@@ -32,7 +32,7 @@ public interface AlarmDAO {
     @Query("SELECT * FROM Alarm WHERE Id = :id")
     LiveData<Alarm> getAlarm(int id);
 
-    @Query("SELECT * FROM Alarm")
+    @Query("SELECT * FROM Alarm ORDER BY Id ASC")
     LiveData<List<Alarm>> getAllAlarms();
 
     @Update
