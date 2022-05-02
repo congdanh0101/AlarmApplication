@@ -23,9 +23,6 @@
             android:name=".Worldclock.ShowAll"
             android:exported="false" />
         <activity
-            android:name=".ContentMain"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">
