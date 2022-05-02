@@ -13,4 +13,7 @@
     <color name="translucent_grey">#D38F8E8E</color>
     <color name="toggleButtonBg">#7B1FA2</color>
     <color name="textColor">#7B1FA2</color>
+    <color name="darkgray">#333333</color>
+    <color name="darkred">#9E0808</color>
+    <color name="red">#F44336</color>
 </resources>

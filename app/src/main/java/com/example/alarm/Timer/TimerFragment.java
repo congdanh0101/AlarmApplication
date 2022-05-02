@@ -1,34 +1,34 @@
 package com.example.alarm.Timer;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.NumberPicker;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.example.alarm.R;
 
 
 public class TimerFragment extends Fragment {
 
-    TextView tv_timer;
-    Button btn_timer_start, btn_timer_reset;
-    private static final long START_TIME_IN_MILIS=6000;
+//    private static final long START_TIME_IN_MILIS = 6000;
+//    TextView tv_timer;
+//    Button btn_timer_start, btn_timer_reset;
+//    private CountDownTimer mCountDownTimer;
+//    private boolean mTimerRunning;
+//    private long mTimeLeftInMilis = START_TIME_IN_MILIS;
 
-    private CountDownTimer mCountDownTimer;
-    private boolean mTimerRunning;
-    private long mTimeLeftInMilis = START_TIME_IN_MILIS;
-
+    private NumberPicker np_hour,np_minute,np_second;
+    private Button btn_start;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,69 +41,50 @@ public class TimerFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        tv_timer = view.findViewById(R.id.timer);
-        btn_timer_reset = view.findViewById(R.id.btn_timer_reset);
-        btn_timer_start = view.findViewById(R.id.btn_timer_start);
+        np_hour = view.findViewById(R.id.np_hour);
+        np_minute = view.findViewById(R.id.np_minute);
+        np_second = view.findViewById(R.id.np_second);
+        btn_start = view.findViewById(R.id.btn_start_timer);
+        setNumberPickerTimer();
 
-        btn_timer_start.setOnClickListener(new View.OnClickListener() {
+        btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mTimerRunning) pauseTimer();
-                else startTimer();
+                int hour, minute,second;
+                long timeMillisSeconds = 0;
+
+                hour = np_hour.getValue();
+                minute = np_minute.getValue();
+                second  =np_second.getValue();
+
+                timeMillisSeconds = (hour*60*60) + (minute*60) + second;
+                timeMillisSeconds = timeMillisSeconds*1000;
+
+                if (timeMillisSeconds!=0){
+                    Intent intent = new Intent(getActivity(),CountdownTimerAcitivity.class);
+                    intent.putExtra(getContext().getString(R.string.time_millis_second),timeMillisSeconds);
+                    startActivity(intent);
+                }else
+                    Toast.makeText(getActivity(),"Please pick a number",Toast.LENGTH_SHORT).show();
             }
         });
-
-        btn_timer_reset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                resetTimer();
-            }
-        });
-        updateCountDownText();
     }
 
-    public void pauseTimer(){
-        mCountDownTimer.cancel();
-        mTimerRunning =false;
-        btn_timer_start.setText("start");
-        btn_timer_reset.setVisibility(View.VISIBLE);
-    }
-    public void startTimer(){
-        mCountDownTimer = new CountDownTimer(mTimeLeftInMilis,1000) {
-            @Override
-            public void onTick(long l) {
-                mTimeLeftInMilis = l;
-                updateCountDownText();
-            }
+    private void setNumberPickerTimer() {
+        String[] hours = getResources().getStringArray(R.array.spinner_hour);
+        String[] minutes = getResources().getStringArray(R.array.spinner_minutes_seconds);
+        String[] seconds = getResources().getStringArray(R.array.spinner_minutes_seconds);
 
-            @Override
-            public void onFinish() {
-//                Intent intent = new Intent(getContext(),TimerReceiver.class);
-                MediaPlayer mp = new MediaPlayer();
-                mp = MediaPlayer.create(getContext(),R.raw.ip6);
-                mp.start();
-                Log.e("Timer","Finished");
-                mTimerRunning = false;
-                btn_timer_start.setText("Start");
-                btn_timer_start.setVisibility(View.INVISIBLE);
-                btn_timer_reset.setVisibility(View.VISIBLE);
-            }
-        }.start();
-        mTimerRunning=true;
-        btn_timer_start.setText("Pause");
-        btn_timer_reset.setVisibility(View.VISIBLE);
-    }
-    public void resetTimer(){
-        mTimeLeftInMilis = START_TIME_IN_MILIS;
-        pauseTimer();
-        updateCountDownText();
-        btn_timer_reset.setVisibility(View.INVISIBLE);
-        btn_timer_start.setVisibility(View.VISIBLE);
-    }
-    public void updateCountDownText(){
-        int minutes = (int) (mTimeLeftInMilis/1000) /60;
-        int seconds = (int) (mTimeLeftInMilis/1000)%60;
-        String sTimeLeftFormatted = String.format("%02d:%02d",minutes,seconds);
-        tv_timer.setText(sTimeLeftFormatted);
+        np_hour.setMinValue(0);
+        np_minute.setMinValue(0);
+        np_second.setMinValue(0);
+
+        np_hour.setMaxValue(hours.length-1);
+        np_minute.setMaxValue(minutes.length-1);
+        np_second.setMaxValue(seconds.length-1);
+
+        np_hour.setDisplayedValues(hours);
+        np_minute.setDisplayedValues(minutes);
+        np_second.setDisplayedValues(seconds);
     }
 }
