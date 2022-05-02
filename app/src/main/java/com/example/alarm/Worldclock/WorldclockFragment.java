@@ -125,6 +125,7 @@ public class WorldclockFragment extends Fragment {
         iv_add = view.findViewById(R.id.iv_add_worldclock);
         recyclerView = view.findViewById(R.id.rv_list_worldclock);
 
+
         cityArrayList = new ArrayList<>();
 
         iv_add.setOnClickListener(new View.OnClickListener() {

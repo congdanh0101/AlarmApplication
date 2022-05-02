@@ -57,8 +57,14 @@ public class TimerFragment extends Fragment {
                 minute = np_minute.getValue();
                 second  =np_second.getValue();
 
+                System.out.println(hour);
+                System.out.println(minute);
+                System.out.println(second);
+
                 timeMillisSeconds = (hour*60*60) + (minute*60) + second;
                 timeMillisSeconds = timeMillisSeconds*1000;
+
+                System.out.println(timeMillisSeconds);
 
                 if (timeMillisSeconds!=0){
                     Intent intent = new Intent(getActivity(),CountdownTimerAcitivity.class);

@@ -1,7 +1,6 @@
 package com.example.alarm.DB;
 
 import android.app.Application;
-import android.content.Context;
 
 import androidx.lifecycle.LiveData;
 
@@ -14,25 +13,26 @@ public class AlarmRepository {
     private AlarmDAO alarmDAO;
     private LiveData<List<Alarm>> listLiveData;
 
-    public AlarmRepository(Application application){
+    public AlarmRepository(Application application) {
         AlarmDB db = AlarmDB.getInstance(application);
         alarmDAO = db.alarmDAO();
         listLiveData = alarmDAO.getAllAlarms();
     }
 
-    public void insertAlarm(Alarm alarm){
-        AlarmDB.dbWriteExecutors.execute(()->{
+    public void insertAlarm(Alarm alarm) {
+        AlarmDB.dbWriteExecutors.execute(() -> {
             alarmDAO.insertAlarm(alarm);
         });
     }
 
-    public void updateAlarm(Alarm alarm){
-        AlarmDB.dbWriteExecutors.execute(()->{
+    public void updateAlarm(Alarm alarm) {
+        AlarmDB.dbWriteExecutors.execute(() -> {
             alarmDAO.updateAlarm(alarm);
         });
     }
-    public void deleteAlarm(int id){
-        AlarmDB.dbWriteExecutors.execute(()->{
+
+    public void deleteAlarm(int id) {
+        AlarmDB.dbWriteExecutors.execute(() -> {
             alarmDAO.deleteAlarm(id);
         });
     }
