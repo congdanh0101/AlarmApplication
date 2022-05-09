@@ -91,10 +91,10 @@ public class AlarmFragment extends Fragment implements OnToggleAlarmListener {
 
     @Override
     public void onItemClick(Alarm alarm, View view) {
-        if(alarm.isStarted())
-            alarm.cancelAlarm(getContext());
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(getContext().getString(R.string.arg_alarm_obj),alarm);
-        Navigation.findNavController(view).navigate(R.id.action_alarmFragment_to_createAlarmFragment);
+//        if(alarm.isStarted())
+//            alarm.cancelAlarm(getContext());
+//        Bundle bundle = new Bundle();
+//        bundle.putSerializable(getContext().getString(R.string.arg_alarm_obj),alarm);
+//        Navigation.findNavController(view).navigate(R.id.action_alarmFragment_to_createAlarmFragment);
     }
 }

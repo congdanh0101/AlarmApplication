@@ -20,8 +20,8 @@ public class AlarmFragmentOfficial extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-        editor = sharedPreferences.edit();
+//        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+//        editor = sharedPreferences.edit();
     }
 
     @Override

@@ -128,7 +128,8 @@ public class CreateAlarmFragment extends Fragment {
         String alarmTitle = getString(R.string.alarm_title);
         int id = new Random().nextInt(Integer.MAX_VALUE);
         if (!binding.fragmentCreatealarmTitle.getText().toString().trim().isEmpty())
-            alarmTitle = binding.fragmentCreatealarmScheduleAlarmHeading.getText().toString().trim();
+            alarmTitle = binding.fragmentCreatealarmTitle.getText().toString().trim();
+        System.out.println(alarmTitle);
 
         Alarm alarm = new Alarm(
                 id,
@@ -156,7 +157,7 @@ public class CreateAlarmFragment extends Fragment {
         String alarmTitle = getString(R.string.alarm_title);
         int id = new Random().nextInt(Integer.MAX_VALUE);
         if (!binding.fragmentCreatealarmTitle.getText().toString().trim().isEmpty())
-            alarmTitle = binding.fragmentCreatealarmScheduleAlarmHeading.getText().toString().trim();
+            alarmTitle = binding.fragmentCreatealarmTitle.getText().toString().trim();
 
         Alarm alarm = new Alarm(
                 id,
