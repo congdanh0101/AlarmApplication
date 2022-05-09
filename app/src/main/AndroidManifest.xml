@@ -22,9 +22,9 @@
         <activity
             android:name=".Worldclock.ShowAll"
             android:exported="false" />
-        <activity
-            android:name=".ContentMain"
-            android:exported="false" />
+
+        <activity android:name=".Timer.CountdownTimerAcitivity"
+            android:exported="true"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
