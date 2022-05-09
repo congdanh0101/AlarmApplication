@@ -43,7 +43,7 @@ public class RingActivity extends AppCompatActivity {
         }
 
         listVM = new ViewModelProvider(this).get(AlarmListVM.class);
-        Bundle bundle = getIntent().getBundleExtra(getString(R.string.arg_alarm_obj));
+        Bundle bundle = getIntent().getBundleExtra(getString(R.string.bundle_alarm_obj));
         if (bundle != null)
             alarm = (Alarm) bundle.getSerializable(getString(R.string.arg_alarm_obj));
         binding.activityRingSnooze.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +65,7 @@ public class RingActivity extends AppCompatActivity {
 
     private void dismissAlarm() {
         if (alarm != null) {
+            System.out.println(alarm.getHour()+":"+alarm.getMinute());
             alarm.setStarted(false);
             alarm.cancelAlarm(getBaseContext());
             listVM.updateAlarm(alarm);
@@ -119,5 +120,18 @@ public class RingActivity extends AppCompatActivity {
         Intent intentService = new Intent(getApplicationContext(), AlarmService.class);
         getApplicationContext().stopService(intentService);
         finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1){
+            setShowWhenLocked(false);
+            setTurnScreenOn(false);
+        }else{
+            getWindow().clearFlags(
+                    WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON | WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON
+            );
+        }
     }
 }

@@ -46,7 +46,9 @@ public class CreateAlarmFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        System.out.println(getArguments());
         if (getArguments() != null) {
+//            Bundle bundle =
             alarm = (Alarm) getArguments().getSerializable(getString(R.string.arg_alarm_obj));
         }
         createAlarmVM = new ViewModelProvider(this).get(CreateAlarmVM.class);
@@ -70,6 +72,7 @@ public class CreateAlarmFragment extends Fragment {
             }
         });
 
+        System.out.println(alarm);
         if (alarm != null) updateAlarmInfo(alarm);
 
         binding.fragmentCreatealarmRecurring.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -155,12 +158,12 @@ public class CreateAlarmFragment extends Fragment {
 
     private void updateAlarm() {
         String alarmTitle = getString(R.string.alarm_title);
-        int id = new Random().nextInt(Integer.MAX_VALUE);
+//        int id = new Random().nextInt(Integer.MAX_VALUE);
         if (!binding.fragmentCreatealarmTitle.getText().toString().trim().isEmpty())
             alarmTitle = binding.fragmentCreatealarmTitle.getText().toString().trim();
 
-        Alarm alarm = new Alarm(
-                id,
+        Alarm alarmUpdate = new Alarm(
+                alarm.getId(),
                 TimePickerUtil.getTimePickerHour(binding.fragmentCreatealarmTimePicker),
                 TimePickerUtil.getTimePickerMinute(binding.fragmentCreatealarmTimePicker),
                 alarmTitle,
@@ -177,7 +180,7 @@ public class CreateAlarmFragment extends Fragment {
                 isVibrate
         );
 
-        createAlarmVM.updateAlarm(alarm);
+        createAlarmVM.updateAlarm(alarmUpdate);
         alarm.schedule(getContext());
     }
 

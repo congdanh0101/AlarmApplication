@@ -45,7 +45,7 @@ public class AlarmService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Bundle bundle = intent.getBundleExtra(getString(R.string.arg_alarm_obj));
+        Bundle bundle = intent.getBundleExtra(getString(R.string.bundle_alarm_obj));
         if (bundle != null)
             alarm = (Alarm) bundle.getSerializable(getString(R.string.arg_alarm_obj));
 

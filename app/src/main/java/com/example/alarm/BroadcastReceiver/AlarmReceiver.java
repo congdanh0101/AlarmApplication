@@ -26,7 +26,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show();
             startRescheduleAlarmsService(context);
         } else {
-            Bundle bundle = intent.getBundleExtra(context.getString(R.string.arg_alarm_obj));
+            Bundle bundle = intent.getBundleExtra(context.getString(R.string.bundle_alarm_obj));
             if (bundle != null)
                 alarm = (Alarm) bundle.getSerializable(context.getString(R.string.arg_alarm_obj));
             String toastText = "Alarm Received";
@@ -72,7 +72,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         Intent intentService = new Intent(context, AlarmService.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable(context.getString(R.string.arg_alarm_obj), a);
-        intentService.putExtra(context.getString(R.string.arg_alarm_obj), bundle);
+        intentService.putExtra(context.getString(R.string.bundle_alarm_obj), bundle);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
             context.startForegroundService(intentService);
         else
