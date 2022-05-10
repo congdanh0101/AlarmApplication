@@ -65,9 +65,14 @@ public class RingActivity extends AppCompatActivity {
 
     private void dismissAlarm() {
         if (alarm != null) {
-            System.out.println(alarm.getHour()+":"+alarm.getMinute());
-            alarm.setStarted(false);
-            alarm.cancelAlarm(getBaseContext());
+            if(alarm.isRecurring()){
+                System.out.println(alarm.getHour()+":"+alarm.getMinute());
+                alarm.setStarted(false);
+                alarm.cancelAlarm(getBaseContext());
+            }
+            else{
+                alarm.setStarted(true);
+            }
             listVM.updateAlarm(alarm);
         }
         Intent intentService = new Intent(getApplicationContext(), AlarmService.class);
