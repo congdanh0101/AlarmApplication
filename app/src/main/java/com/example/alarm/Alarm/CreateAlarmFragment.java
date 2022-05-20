@@ -46,7 +46,7 @@ public class CreateAlarmFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        System.out.println(getArguments());
+        System.out.println("Arguments: "+getArguments());
         if (getArguments() != null) {
 //            Bundle bundle =
             alarm = (Alarm) getArguments().getSerializable(getString(R.string.arg_alarm_obj));
@@ -134,7 +134,7 @@ public class CreateAlarmFragment extends Fragment {
             alarmTitle = binding.fragmentCreatealarmTitle.getText().toString().trim();
         System.out.println(alarmTitle);
 
-        Alarm alarm = new Alarm(
+        Alarm alarm1 = new Alarm(
                 id,
                 TimePickerUtil.getTimePickerHour(binding.fragmentCreatealarmTimePicker),
                 TimePickerUtil.getTimePickerMinute(binding.fragmentCreatealarmTimePicker),
@@ -152,8 +152,8 @@ public class CreateAlarmFragment extends Fragment {
                 isVibrate
         );
 
-        createAlarmVM.insertAlarm(alarm);
-        alarm.schedule(getContext());
+        createAlarmVM.insertAlarm(alarm1);
+        alarm1.schedule(getContext());
     }
 
     private void updateAlarm() {
@@ -194,25 +194,25 @@ public class CreateAlarmFragment extends Fragment {
             binding.fragmentCreatealarmRecurringOptions.setVisibility(View.VISIBLE);
 
             if (alarm.isMonday()) binding.fragmentCreatealarmCheckMon.setChecked(true);
-            else binding.fragmentCreatealarmCheckMon.setChecked(false);
+//            else binding.fragmentCreatealarmCheckMon.setChecked(false);
 
             if (alarm.isTuesday()) binding.fragmentCreatealarmCheckTue.setChecked(true);
-            else binding.fragmentCreatealarmCheckTue.setChecked(false);
+//            else binding.fragmentCreatealarmCheckTue.setChecked(false);
 
             if (alarm.isWednesday()) binding.fragmentCreatealarmCheckWed.setChecked(true);
-            else binding.fragmentCreatealarmCheckWed.setChecked(false);
+//            else binding.fragmentCreatealarmCheckWed.setChecked(false);
 
             if (alarm.isThursday()) binding.fragmentCreatealarmCheckThu.setChecked(true);
-            else binding.fragmentCreatealarmCheckThu.setChecked(false);
+//            else binding.fragmentCreatealarmCheckThu.setChecked(false);
 
             if (alarm.isFriday()) binding.fragmentCreatealarmCheckFri.setChecked(true);
-            else binding.fragmentCreatealarmCheckFri.setChecked(false);
+//            else binding.fragmentCreatealarmCheckFri.setChecked(false);
 
             if (alarm.isSaturday()) binding.fragmentCreatealarmCheckSat.setChecked(true);
-            else binding.fragmentCreatealarmCheckSat.setChecked(false);
+//            else binding.fragmentCreatealarmCheckSat.setChecked(false);
 
             if (alarm.isSunday()) binding.fragmentCreatealarmCheckSun.setChecked(true);
-            else binding.fragmentCreatealarmCheckSun.setChecked(false);
+//            else binding.fragmentCreatealarmCheckSun.setChecked(false);
 
 
             tone = alarm.getTone();
@@ -220,9 +220,11 @@ public class CreateAlarmFragment extends Fragment {
             binding.fragmentCreatealarmSetToneName.setText(ringtone.getTitle(getContext()));
 
             if (alarm.isVibrate()) binding.fragmentCreatealarmVibrateSwitch.setChecked(true);
-            else binding.fragmentCreatealarmVibrateSwitch.setChecked(false);
-        } else
-            binding.fragmentCreatealarmRecurring.setChecked(false);
+//            else binding.fragmentCreatealarmVibrateSwitch.setChecked(false);
+        }
+//        else
+//            binding.fragmentCreatealarmRecurring.setChecked(false);
+
     }
 
     @Override

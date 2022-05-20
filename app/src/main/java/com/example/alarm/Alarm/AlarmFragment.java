@@ -1,5 +1,7 @@
 package com.example.alarm.Alarm;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -89,6 +91,19 @@ public class AlarmFragment extends Fragment implements OnToggleAlarmListener {
 
     @Override
     public void onDelete(Alarm alarm) {
+//        AlertDialog.Builder builder = new AlertDialog.Builder(getContext(),1);
+//        builder.setTitle("Delete alarm")
+//                .setMessage("Do you want to delete it?")
+//                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        if(alarm.isStarted())
+//                            alarm.cancelAlarm(getContext());
+//                        listVM.deleteAlarm(alarm.getId());
+//                    }
+//                })
+//                .setNegativeButton("No",null)
+//                .show();
         if(alarm.isStarted())
             alarm.cancelAlarm(getContext());
         listVM.deleteAlarm(alarm.getId());

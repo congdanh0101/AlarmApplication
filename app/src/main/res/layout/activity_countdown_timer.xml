@@ -48,6 +48,10 @@
         android:layout_below="@+id/text_view_countdown"
         android:layout_centerHorizontal="true"
         android:text="Resume"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:backgroundTint="@color/organge"
         android:layout_marginEnd="24dp"
         android:visibility="invisible"
         tools:visibility="visible"
@@ -62,6 +66,10 @@
         android:layout_height="46dp"
         android:layout_centerHorizontal="true"
         android:text="Pause"
+        android:textStyle="bold"
+        android:textSize="23dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/organge"
         android:visibility="invisible"
         android:layout_marginBottom="64dp"
         app:layout_constraintBottom_toTopOf="@id/btn_cancel"
@@ -78,8 +86,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#68F44336"
+        android:backgroundTint="#ff0000"
         android:text="Cancel"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="18dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,19 +98,19 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_resume"
         tools:visibility="visible" />
 
-<!--    <Button-->
-<!--        android:id="@+id/btn_restart"-->
-<!--        android:layout_width="135dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_below="@+id/text_view_countdown"-->
-<!--        android:layout_toRightOf="@+id/btn_resume"-->
-<!--        android:text="restart"-->
-<!--        android:visibility="visible"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/progressBar"-->
-<!--        app:layout_constraintVertical_bias="0.641"-->
-<!--        tools:visibility="visible" />-->
+    <!--    <Button-->
+    <!--        android:id="@+id/btn_restart"-->
+    <!--        android:layout_width="135dp"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:layout_below="@+id/text_view_countdown"-->
+    <!--        android:layout_toRightOf="@+id/btn_resume"-->
+    <!--        android:text="restart"-->
+    <!--        android:visibility="visible"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/progressBar"-->
+    <!--        app:layout_constraintVertical_bias="0.641"-->
+    <!--        tools:visibility="visible" />-->
 
     <Button
         android:id="@+id/btn_restart"
@@ -108,6 +119,10 @@
         android:layout_below="@+id/text_view_countdown"
         android:layout_centerHorizontal="true"
         android:text="Restart"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:backgroundTint="@color/organge"
         android:layout_marginStart="24dp"
         android:visibility="invisible"
         tools:visibility="visible"
@@ -116,18 +131,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-<!--    <ImageView-->
-<!--        android:id="@+id/imageView"-->
-<!--        android:layout_width="380dp"-->
-<!--        android:layout_height="380dp"-->
-<!--        android:layout_marginBottom="160dp"-->
-<!--        android:visibility="visible"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/restart"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:srcCompat="@drawable/clock"-->
-<!--        tools:visibility="visible" />-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/imageView"-->
+    <!--        android:layout_width="380dp"-->
+    <!--        android:layout_height="380dp"-->
+    <!--        android:layout_marginBottom="160dp"-->
+    <!--        android:visibility="visible"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/restart"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:srcCompat="@drawable/clock"-->
+    <!--        tools:visibility="visible" />-->
 
     <ProgressBar
         android:id="@+id/progressBar"

@@ -252,8 +252,8 @@ public class CountdownTimerAcitivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
+        super.onDestroy();
 //        mediaPlayer.pause();
 //        mediaPlayer.release();
-        super.onDestroy();
     }
 }

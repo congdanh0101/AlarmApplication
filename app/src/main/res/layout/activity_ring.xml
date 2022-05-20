@@ -46,7 +46,7 @@
     <Button
         android:id="@+id/activity_ring_snooze"
         android:layout_width="0dp"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:text="Snooze"
         android:textColor="@color/white"
         android:background="@color/translucent_grey"
